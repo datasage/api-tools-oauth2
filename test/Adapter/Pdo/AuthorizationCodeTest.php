@@ -9,7 +9,7 @@ use OAuth2\Storage\AuthorizationCodeInterface;
 
 use function time;
 
-class AuthorizationCodeTest extends AbstractBaseTest
+class AuthorizationCodeTest extends AbstractBaseTestCase
 {
     /** @dataProvider provideStorage */
     public function testGetAuthorizationCode(AuthorizationCodeInterface $storage): void

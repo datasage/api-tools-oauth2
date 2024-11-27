@@ -9,7 +9,7 @@ use function file_get_contents;
 /**
  * @todo This adapter logic is not supported in the PDO adapter
  */
-class PublicKeyTest extends AbstractBaseTest
+class PublicKeyTest extends AbstractBaseTestCase
 {
     /**
      * @dataProvider provideStorage

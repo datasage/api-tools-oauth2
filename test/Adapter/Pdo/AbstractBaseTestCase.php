@@ -9,7 +9,7 @@ use ReflectionProperty;
 
 use function file_get_contents;
 
-abstract class AbstractBaseTest extends AbstractHttpControllerTestCase
+abstract class AbstractBaseTestCase extends AbstractHttpControllerTestCase
 {
     protected function setUp(): void
     {

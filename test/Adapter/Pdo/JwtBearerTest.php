@@ -7,7 +7,7 @@ namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 /**
  * @todo This adapter logic is not supported in the PDO adapter
  */
-class JwtBearerTest extends AbstractBaseTest
+class JwtBearerTest extends AbstractBaseTestCase
 {
     /**
      * @dataProvider provideStorage

@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace Laminas\ApiTools\OAuth2\Adapter;
 
-use Laminas\Crypt\Password\Bcrypt;
 use MongoClient;
 use OAuth2\Storage\Mongo as OAuth2Mongo;
 
 use function class_exists;
 use function extension_loaded;
 use function func_num_args;
+use function password_hash;
+use function password_verify;
 use function version_compare;
+
+use const PASSWORD_BCRYPT;
 
 /**
  * Extension of OAuth2\Storage\PDO that provides Bcrypt client_secret/password
@@ -21,22 +24,6 @@ class MongoAdapter extends OAuth2Mongo
 {
     /** @var int */
     protected $bcryptCost = 10;
-
-    /** @var Bcrypt */
-    protected $bcrypt;
-
-    /**
-     * @return Bcrypt
-     */
-    public function getBcrypt()
-    {
-        if (null === $this->bcrypt) {
-            $this->bcrypt = new Bcrypt();
-            $this->bcrypt->setCost($this->bcryptCost);
-        }
-
-        return $this->bcrypt;
-    }
 
     /**
      * @param int $value
@@ -51,7 +38,7 @@ class MongoAdapter extends OAuth2Mongo
     /**
      * Check password using bcrypt
      *
-     * @param array<string, string> $user
+     * @param array<array-key, mixed> $user
      * @param string $password
      * @return bool
      */
@@ -65,7 +52,7 @@ class MongoAdapter extends OAuth2Mongo
      */
     protected function createBcryptHash(&$string): void
     {
-        $string = $this->getBcrypt()->create($string);
+        $string = password_hash($string, PASSWORD_BCRYPT, ['cost' => $this->bcryptCost]);
     }
 
     /**
@@ -77,7 +64,7 @@ class MongoAdapter extends OAuth2Mongo
      */
     protected function verifyHash($check, $hash)
     {
-        return $this->getBcrypt()->verify($check, $hash);
+        return password_verify($check, $hash);
     }
 
     /**

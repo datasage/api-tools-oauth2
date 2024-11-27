@@ -12,7 +12,7 @@ use function explode;
 use function sort;
 use function sprintf;
 
-class ScopeTest extends AbstractBaseTest
+class ScopeTest extends AbstractBaseTestCase
 {
     /** @dataProvider provideStorage */
     public function testScopeExists(object $storage): void
