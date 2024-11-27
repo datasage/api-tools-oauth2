@@ -17,7 +17,7 @@ if (! $autoload) {
 
 include $autoload;
 
-$help   = <<<EOH
+$help = <<<EOH
 Usage:
   php bcrypt.php <password> [cost]
 
