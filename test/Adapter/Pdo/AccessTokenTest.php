@@ -8,7 +8,7 @@ use OAuth2\Storage\AccessTokenInterface;
 
 use function time;
 
-class AccessTokenTest extends AbstractBaseTest
+class AccessTokenTest extends AbstractBaseTestCase
 {
     /**
      * @dataProvider provideStorage

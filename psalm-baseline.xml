@@ -1,715 +1,788 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="bin/bcrypt.php">
-    <UnresolvableInclude occurrences="1">
-      <code>include $autoload</code>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $autoload]]></code>
+      <code><![CDATA[! $autoload]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UnresolvableInclude>
+      <code><![CDATA[include $autoload]]></code>
     </UnresolvableInclude>
   </file>
+  <file src="config/module.config.php">
+    <UndefinedClass>
+      <code><![CDATA[AuthenticationService]]></code>
+      <code><![CDATA[MongoAdapter]]></code>
+      <code><![CDATA[PdoAdapter]]></code>
+    </UndefinedClass>
+  </file>
   <file src="src/Adapter/PdoAdapter.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>null === $this-&gt;bcrypt</code>
-    </DocblockTypeContradiction>
-    <ImplementedParamTypeMismatch occurrences="1">
-      <code>$grantTypes</code>
+    <ImplementedParamTypeMismatch>
+      <code><![CDATA[$check]]></code>
+      <code><![CDATA[$grantTypes]]></code>
     </ImplementedParamTypeMismatch>
-    <MixedArgument occurrences="8">
-      <code>$config['bcrypt_cost']</code>
-      <code>$result['client_secret']</code>
-      <code>$this-&gt;config['client_table']</code>
-      <code>$this-&gt;config['client_table']</code>
-      <code>$this-&gt;config['client_table']</code>
-      <code>$this-&gt;config['user_table']</code>
-      <code>$this-&gt;config['user_table']</code>
-      <code>$user['password']</code>
+    <MixedArgument>
+      <code><![CDATA[$config['bcrypt_cost']]]></code>
+      <code><![CDATA[$result['client_secret']]]></code>
+      <code><![CDATA[$this->config['client_table']]]></code>
+      <code><![CDATA[$this->config['client_table']]]></code>
+      <code><![CDATA[$this->config['client_table']]]></code>
+      <code><![CDATA[$this->config['user_table']]]></code>
+      <code><![CDATA[$this->config['user_table']]]></code>
+      <code><![CDATA[$user['password']]]></code>
     </MixedArgument>
-    <ParamNameMismatch occurrences="8">
-      <code>$clientId</code>
-      <code>$clientId</code>
-      <code>$clientSecret</code>
-      <code>$clientSecret</code>
-      <code>$grantTypes</code>
-      <code>$redirectUri</code>
-      <code>$scopeOrUserId</code>
-      <code>$userId</code>
+    <ParamNameMismatch>
+      <code><![CDATA[$check]]></code>
+      <code><![CDATA[$clientId]]></code>
+      <code><![CDATA[$clientId]]></code>
+      <code><![CDATA[$clientId]]></code>
+      <code><![CDATA[$clientSecret]]></code>
+      <code><![CDATA[$clientSecret]]></code>
+      <code><![CDATA[$clientSecret]]></code>
+      <code><![CDATA[$grantTypes]]></code>
+      <code><![CDATA[$hash]]></code>
+      <code><![CDATA[$redirectUri]]></code>
+      <code><![CDATA[$scopeOrUserId]]></code>
+      <code><![CDATA[$userId]]></code>
     </ParamNameMismatch>
-    <PossiblyNullArgument occurrences="1">
-      <code>$clientSecret</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$clientSecret]]></code>
     </PossiblyNullArgument>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$bcrypt</code>
-    </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $value</code>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $value]]></code>
     </RedundantCastGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->getUser($username)]]></code>
+      <code><![CDATA[empty($clientSecret)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controller/AuthController.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
     </ArgumentTypeCoercion>
-    <DocblockTypeContradiction occurrences="1">
-      <code>is_object($serverFactory)</code>
+    <DocblockTypeContradiction>
+      <code><![CDATA[is_object($serverFactory)]]></code>
     </DocblockTypeContradiction>
-    <InvalidCatch occurrences="1"/>
-    <LessSpecificReturnStatement occurrences="7">
-      <code>$httpResponse</code>
-      <code>$this-&gt;getErrorResponse($response)</code>
-      <code>$this-&gt;getErrorResponse($response)</code>
-      <code>$this-&gt;getErrorResponse($response)</code>
-      <code>$this-&gt;getErrorResponse($response)</code>
-      <code>$this-&gt;getResponse()</code>
-      <code>$this-&gt;getResponse()</code>
+    <InvalidCatch>
+      <code><![CDATA[try {
+            $response = $oauth2server->handleTokenRequest($oauth2request);
+        } catch (ProblemExceptionInterface $ex) {
+            $status = $ex->getCode() ?: 401;
+            $status = $status >= 400 && $status < 600 ? $status : 401;
+
+            return new ApiProblemResponse(
+                new ApiProblem($status, $ex)
+            );
+        }]]></code>
+    </InvalidCatch>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$httpResponse]]></code>
+      <code><![CDATA[$this->getErrorResponse($response)]]></code>
+      <code><![CDATA[$this->getErrorResponse($response)]]></code>
+      <code><![CDATA[$this->getErrorResponse($response)]]></code>
+      <code><![CDATA[$this->getErrorResponse($response)]]></code>
+      <code><![CDATA[$this->getResponse()]]></code>
+      <code><![CDATA[$this->getResponse()]]></code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="13">
-      <code>$bodyParams</code>
-      <code>$error</code>
-      <code>$errorDescription</code>
-      <code>$errorUri</code>
-      <code>$headers</code>
-      <code>$laminasRequest-&gt;getContent()</code>
-      <code>$laminasRequest-&gt;getQuery()-&gt;toArray()</code>
-      <code>$redirect</code>
-      <code>$server</code>
-      <code>$serverFactory</code>
-      <code>$this-&gt;params('oauth')</code>
-      <code>$this-&gt;params('oauth')</code>
-      <code>$this-&gt;params('oauth')</code>
+    <MixedArgument>
+      <code><![CDATA[$bodyParams]]></code>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$errorDescription]]></code>
+      <code><![CDATA[$errorUri]]></code>
+      <code><![CDATA[$headers]]></code>
+      <code><![CDATA[$laminasRequest->getContent()]]></code>
+      <code><![CDATA[$laminasRequest->getQuery()->toArray()]]></code>
+      <code><![CDATA[$redirect]]></code>
+      <code><![CDATA[$server]]></code>
+      <code><![CDATA[$this->params('oauth')]]></code>
+      <code><![CDATA[$this->params('oauth')]]></code>
+      <code><![CDATA[$this->params('oauth')]]></code>
+      <code><![CDATA[is_object($serverFactory) ? $serverFactory::class : gettype($serverFactory)]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$server['PHP_AUTH_PW']</code>
-      <code>$server['PHP_AUTH_USER']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$headers['PHP_AUTH_PW']</code>
-      <code>$headers['PHP_AUTH_USER']</code>
-      <code>$server['REQUEST_METHOD']</code>
+    <MixedArrayAssignment>
+      <code><![CDATA[$headers['PHP_AUTH_PW']]]></code>
+      <code><![CDATA[$headers['PHP_AUTH_USER']]]></code>
+      <code><![CDATA[$server['REQUEST_METHOD']]]></code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="14">
-      <code>$authorized</code>
-      <code>$bodyParams</code>
-      <code>$clientId</code>
-      <code>$code</code>
-      <code>$error</code>
-      <code>$errorDescription</code>
-      <code>$errorUri</code>
-      <code>$headers</code>
-      <code>$headers</code>
-      <code>$headers['PHP_AUTH_PW']</code>
-      <code>$headers['PHP_AUTH_USER']</code>
-      <code>$redirect</code>
-      <code>$server</code>
-      <code>$server['REQUEST_METHOD']</code>
+    <MixedAssignment>
+      <code><![CDATA[$authorized]]></code>
+      <code><![CDATA[$bodyParams]]></code>
+      <code><![CDATA[$clientId]]></code>
+      <code><![CDATA[$code]]></code>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$errorDescription]]></code>
+      <code><![CDATA[$errorUri]]></code>
+      <code><![CDATA[$headers]]></code>
+      <code><![CDATA[$headers]]></code>
+      <code><![CDATA[$headers['PHP_AUTH_PW']]]></code>
+      <code><![CDATA[$headers['PHP_AUTH_USER']]]></code>
+      <code><![CDATA[$redirect]]></code>
+      <code><![CDATA[$server]]></code>
+      <code><![CDATA[$server['REQUEST_METHOD']]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>addHeaders</code>
-      <code>fromQuery</code>
-      <code>get</code>
-      <code>getFieldValue</code>
-      <code>has</code>
-      <code>toArray</code>
-      <code>toArray</code>
-      <code>toArray</code>
+    <MixedMethodCall>
+      <code><![CDATA[addHeaders]]></code>
+      <code><![CDATA[fromQuery]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[toArray]]></code>
+      <code><![CDATA[toArray]]></code>
+      <code><![CDATA[toArray]]></code>
     </MixedMethodCall>
-    <MoreSpecificReturnType occurrences="4">
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>Response</code>
-      <code>Response|ViewModel</code>
+    <MoreSpecificReturnType>
+      <code><![CDATA[?Response]]></code>
+      <code><![CDATA[?Response]]></code>
+      <code><![CDATA[Response]]></code>
+      <code><![CDATA[Response|ViewModel]]></code>
     </MoreSpecificReturnType>
-    <PossiblyNullArgument occurrences="1">
-      <code>$errorDescription</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$errorDescription]]></code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>isClientError</code>
-    </PossiblyUndefinedMethod>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$server</code>
-      <code>AuthController</code>
-      <code>AuthController</code>
-      <code>AuthController</code>
-      <code>AuthController</code>
-      <code>AuthController</code>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$server]]></code>
+      <code><![CDATA[AuthController]]></code>
+      <code><![CDATA[AuthController]]></code>
+      <code><![CDATA[AuthController]]></code>
+      <code><![CDATA[AuthController]]></code>
+      <code><![CDATA[AuthController]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(bool) $apiProblemErrorResponse</code>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) $apiProblemErrorResponse]]></code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$this-&gt;server instanceof OAuth2Server</code>
-      <code>gettype($serverFactory)</code>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$this->server instanceof OAuth2Server]]></code>
+      <code><![CDATA[gettype($serverFactory)]]></code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedDocblockClass occurrences="1">
-      <code>$response-&gt;isClientError()</code>
-    </UndefinedDocblockClass>
-    <UndefinedInterfaceMethod occurrences="6">
-      <code>getHeaders</code>
-      <code>getHeaders</code>
-      <code>getMethod</code>
-      <code>getQuery</code>
-      <code>isClientError</code>
-      <code>setStatusCode</code>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[getHeaders]]></code>
+      <code><![CDATA[getHeaders]]></code>
+      <code><![CDATA[getMethod]]></code>
+      <code><![CDATA[getQuery]]></code>
+      <code><![CDATA[isClientError]]></code>
+      <code><![CDATA[isClientError]]></code>
+      <code><![CDATA[setStatusCode]]></code>
     </UndefinedInterfaceMethod>
-    <UndefinedMagicMethod occurrences="1">
-      <code>bodyParams</code>
+    <UndefinedMagicMethod>
+      <code><![CDATA[bodyParams]]></code>
     </UndefinedMagicMethod>
   </file>
   <file src="src/Factory/AuthControllerFactory.php">
-    <DeprecatedInterface occurrences="1">
-      <code>AuthControllerFactory</code>
+    <DeprecatedInterface>
+      <code><![CDATA[AuthControllerFactory]]></code>
     </DeprecatedInterface>
-    <MixedArgument occurrences="2">
-      <code>$container-&gt;get(UserId::class)</code>
-      <code>UserId::class</code>
+    <MixedArgument>
+      <code><![CDATA[$container->get(UserId::class)]]></code>
+      <code><![CDATA[UserId::class]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$config['api-tools-oauth2']['api_problem_error_response']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-oauth2']['api_problem_error_response']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>callable</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[callable]]></code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$oauth2ServerFactory</code>
+    <MixedReturnStatement>
+      <code><![CDATA[$oauth2ServerFactory]]></code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="1">
-      <code>$controllers</code>
+    <ParamNameMismatch>
+      <code><![CDATA[$controllers]]></code>
     </ParamNameMismatch>
-    <UndefinedClass occurrences="1">
-      <code>UserId</code>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$requestedName]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UndefinedClass>
+      <code><![CDATA[UserId]]></code>
     </UndefinedClass>
   </file>
   <file src="src/Factory/OAuth2ServerFactory.php">
-    <MixedArgument occurrences="1">
-      <code>$config</code>
+    <MixedArgument>
+      <code><![CDATA[$config]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$config['api-tools-oauth2']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-oauth2']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$config</code>
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Factory/OAuth2ServerInstanceFactory.php">
-    <ArgumentTypeCoercion occurrences="5">
-      <code>$server-&gt;getStorage('authorization_code')</code>
-      <code>$server-&gt;getStorage('client_credentials')</code>
-      <code>$server-&gt;getStorage('jwt_bearer')</code>
-      <code>$server-&gt;getStorage('refresh_token')</code>
-      <code>$server-&gt;getStorage('user_credentials')</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$server->getStorage('authorization_code')]]></code>
+      <code><![CDATA[$server->getStorage('client_credentials')]]></code>
+      <code><![CDATA[$server->getStorage('jwt_bearer')]]></code>
+      <code><![CDATA[$server->getStorage('refresh_token')]]></code>
+      <code><![CDATA[$server->getStorage('user_credentials')]]></code>
     </ArgumentTypeCoercion>
-    <MixedArgument occurrences="3">
-      <code>$audience</code>
-      <code>$options</code>
-      <code>$storagesService</code>
+    <MixedArgument>
+      <code><![CDATA[$audience]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$storagesService]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="11">
-      <code>$accessLifetime</code>
-      <code>$allowImplicit</code>
-      <code>$audience</code>
-      <code>$availableGrantTypes</code>
-      <code>$clientOptions['allow_credentials_in_request_body']</code>
-      <code>$enforceState</code>
-      <code>$options</code>
-      <code>$refreshOptions['always_issue_new_refresh_token']</code>
-      <code>$refreshOptions['unset_refresh_token_after_use']</code>
-      <code>$storage[$storageKey]</code>
-      <code>$storagesService</code>
+    <MixedAssignment>
+      <code><![CDATA[$accessLifetime]]></code>
+      <code><![CDATA[$allowImplicit]]></code>
+      <code><![CDATA[$audience]]></code>
+      <code><![CDATA[$availableGrantTypes]]></code>
+      <code><![CDATA[$clientOptions['allow_credentials_in_request_body']]]></code>
+      <code><![CDATA[$enforceState]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$refreshOptions['always_issue_new_refresh_token']]]></code>
+      <code><![CDATA[$refreshOptions['unset_refresh_token_after_use']]]></code>
+      <code><![CDATA[$storage[$storageKey]]]></code>
+      <code><![CDATA[$storagesService]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="5">
-      <code>$server-&gt;getStorage('authorization_code')</code>
-      <code>$server-&gt;getStorage('client_credentials')</code>
-      <code>$server-&gt;getStorage('jwt_bearer')</code>
-      <code>$server-&gt;getStorage('refresh_token')</code>
-      <code>$server-&gt;getStorage('user_credentials')</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$server->getStorage('authorization_code')]]></code>
+      <code><![CDATA[$server->getStorage('client_credentials')]]></code>
+      <code><![CDATA[$server->getStorage('jwt_bearer')]]></code>
+      <code><![CDATA[$server->getStorage('refresh_token')]]></code>
+      <code><![CDATA[$server->getStorage('user_credentials')]]></code>
     </PossiblyNullArgument>
-    <PropertyTypeCoercion occurrences="1">
-      <code>$services</code>
-    </PropertyTypeCoercion>
   </file>
   <file src="src/Factory/PdoAdapterFactory.php">
-    <InvalidArgument occurrences="1"/>
-    <InvalidCast occurrences="1"/>
-    <MixedArrayAccess occurrences="5">
-      <code>$config['api-tools-oauth2']</code>
-      <code>$oauthConfig['db']</code>
-      <code>$oauthConfig['db']</code>
-      <code>$oauthConfig['db']</code>
-      <code>$oauthConfig['db']</code>
+    <InvalidArgument>
+      <code><![CDATA[[
+            'dsn'      => $oauthConfig['db']['dsn'],
+            'username' => $username,
+            'password' => $password,
+            'options'  => $options,
+        ]]]></code>
+    </InvalidArgument>
+    <InvalidCast>
+      <code><![CDATA[[
+            'dsn'      => $oauthConfig['db']['dsn'],
+            'username' => $username,
+            'password' => $password,
+            'options'  => $options,
+        ]]]></code>
+    </InvalidCast>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-oauth2']]]></code>
+      <code><![CDATA[$oauthConfig['db']]]></code>
+      <code><![CDATA[$oauthConfig['db']]]></code>
+      <code><![CDATA[$oauthConfig['db']]]></code>
+      <code><![CDATA[$oauthConfig['db']]]></code>
+      <code><![CDATA[$oauthConfig['db']['dsn']]]></code>
+      <code><![CDATA[$oauthConfig['db']['options']]]></code>
+      <code><![CDATA[$oauthConfig['db']['password']]]></code>
+      <code><![CDATA[$oauthConfig['db']['username']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="5">
-      <code>$config</code>
-      <code>$oauthConfig</code>
-      <code>$options</code>
-      <code>$password</code>
-      <code>$username</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$oauthConfig]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$password]]></code>
+      <code><![CDATA[$username]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Module.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[array]]></code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>include __DIR__ . '/../config/module.config.php'</code>
+    <MixedReturnStatement>
+      <code><![CDATA[include __DIR__ . '/../config/module.config.php']]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/Provider/UserId/AuthenticationService.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>null === $this-&gt;authenticationService</code>
-    </DocblockTypeContradiction>
-    <MixedAssignment occurrences="2">
-      <code>$identity</code>
-      <code>$this-&gt;userId</code>
+    <MixedAssignment>
+      <code><![CDATA[$identity]]></code>
+      <code><![CDATA[$this->userId]]></code>
     </MixedAssignment>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$service</code>
-    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Provider/UserId/AuthenticationServiceFactory.php">
-    <MixedArgument occurrences="3">
-      <code>$config</code>
-      <code>$config</code>
-      <code>$container-&gt;get(\Laminas\Authentication\AuthenticationService::class)</code>
+    <MixedArgument>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$container->get(\Laminas\Authentication\AuthenticationService::class)]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
   </file>
-  <file src="test/Adapter/Pdo/AbstractBaseTest.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>[[$pdo]]</code>
-    </LessSpecificReturnStatement>
-    <MixedArgument occurrences="1">
-      <code>$pdo</code>
+  <file src="test/Adapter/Pdo/AbstractBaseTestCase.php">
+    <MixedArgument>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$pdo]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$db</code>
-      <code>$pdo</code>
+    <MixedAssignment>
+      <code><![CDATA[$db]]></code>
+      <code><![CDATA[$pdo]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>exec</code>
+    <MixedMethodCall>
+      <code><![CDATA[exec]]></code>
     </MixedMethodCall>
-    <MoreSpecificReturnType occurrences="1">
-      <code>array&lt;array-key, array{0: PdoAdapter}&gt;</code>
-    </MoreSpecificReturnType>
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>setAllowOverride</code>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[[[$pdo]]]]></code>
+      <code><![CDATA[array<array-key, array{0: PdoAdapter}>]]></code>
+    </MixedReturnTypeCoercion>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[setAllowOverride]]></code>
     </UndefinedInterfaceMethod>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
   <file src="test/Adapter/Pdo/AccessTokenTest.php">
-    <UndefinedClass occurrences="1">
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
   </file>
   <file src="test/Adapter/Pdo/AuthorizationCodeTest.php">
-    <UndefinedClass occurrences="3">
-      <code>NullStorage</code>
-      <code>NullStorage</code>
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
   </file>
   <file src="test/Adapter/Pdo/ClientCredentialsTest.php">
-    <UndefinedClass occurrences="1">
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
   </file>
   <file src="test/Adapter/Pdo/ClientTest.php">
-    <UndefinedClass occurrences="4">
-      <code>NullStorage</code>
-      <code>NullStorage</code>
-      <code>NullStorage</code>
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
-    <UndefinedInterfaceMethod occurrences="2">
-      <code>isPublicClient</code>
-      <code>isPublicClient</code>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[isPublicClient]]></code>
+      <code><![CDATA[isPublicClient]]></code>
     </UndefinedInterfaceMethod>
   </file>
   <file src="test/Adapter/Pdo/JwtAccessTokenTest.php">
-    <UnevaluatedCode occurrences="9">
-      <code>$audience = 'http://unittest';</code>
-      <code>$clientId = 'oauth_test_client';</code>
-      <code>$expires = $expires-&gt;format('U');</code>
-      <code>$expires = new DateTime('today +1 day');</code>
-      <code>$jti      = 'jti';</code>
-      <code>$storage-&gt;getJti($clientId, $subject, $audience, $expires, $jti);</code>
-      <code>$subject  = 'jtisubject';</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getJti($clientId, $subject, $audience, $expires, 'invlalid'));</code>
-      <code>$this-&gt;assertTrue($storage-&gt;setJti($clientId, $subject, $audience, $expires, $jti));</code>
+    <UnevaluatedCode>
+      <code><![CDATA[$audience = 'http://unittest';]]></code>
+      <code><![CDATA[$clientId = 'oauth_test_client';]]></code>
+      <code><![CDATA[$expires = $expires->format('U');]]></code>
+      <code><![CDATA[$expires = new DateTime('today +1 day');]]></code>
+      <code><![CDATA[$jti      = 'jti';]]></code>
+      <code><![CDATA[$storage->getJti($clientId, $subject, $audience, $expires, $jti);]]></code>
+      <code><![CDATA[$subject  = 'jtisubject';]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getJti($clientId, $subject, $audience, $expires, 'invlalid'));]]></code>
+      <code><![CDATA[$this->assertTrue($storage->setJti($clientId, $subject, $audience, $expires, $jti));]]></code>
     </UnevaluatedCode>
   </file>
   <file src="test/Adapter/Pdo/JwtBearerTest.php">
-    <UnevaluatedCode occurrences="8">
-      <code>$key = $storage-&gt;getClientKey('oauth_test_client', 'nor-is-this');</code>
-      <code>$key = $storage-&gt;getClientKey('oauth_test_client', 'test_subject');</code>
-      <code>$key = $storage-&gt;getClientKey('this-is-not-real', 'nor-is-this');</code>
-      <code>$this-&gt;assertFalse($key);</code>
-      <code>$this-&gt;assertFalse($key);</code>
-      <code>$this-&gt;assertNotNull($key);</code>
+    <UnevaluatedCode>
+      <code><![CDATA[$key = $storage->getClientKey('oauth_test_client', 'nor-is-this');]]></code>
+      <code><![CDATA[$key = $storage->getClientKey('oauth_test_client', 'test_subject');]]></code>
+      <code><![CDATA[$key = $storage->getClientKey('this-is-not-real', 'nor-is-this');]]></code>
+      <code><![CDATA[$this->assertEquals(
+            $key,
+            <<<'END_WRAP'
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvfF+Cw8nzsc9Twam37SYpAW3+
+lRGUle/hYnd9obfBvDHKBvgb1WfGCblwjwImGL9u0rEIW2sspkwBEsGGFFBmSaqq
+fvEER7Yr++VIidOUHkas3cHO1TVoERO3s0THOobw0OzghPnMJL6ayelYOESwfnqR
+WfuEMSaWaW0G38QPzwIDAQAB
+-----END PUBLIC KEY-----
+END_WRAP
+        );]]></code>
+      <code><![CDATA[$this->assertFalse($key);]]></code>
+      <code><![CDATA[$this->assertFalse($key);]]></code>
+      <code><![CDATA[$this->assertNotNull($key);]]></code>
+      <code><![CDATA[if ($storage instanceof NullStorage) {
+            $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
+
+            return;
+        }]]></code>
     </UnevaluatedCode>
   </file>
   <file src="test/Adapter/Pdo/PublicKeyTest.php">
-    <UnevaluatedCode occurrences="11">
-      <code>$globalPrivateKey = file_get_contents(__DIR__ . '/../../TestAsset/data/key.pem');</code>
-      <code>$globalPublicKey  = file_get_contents(__DIR__ . '/../../TestAsset/data/pubkey.pem');</code>
-      <code>$this-&gt;assertEquals($globalPrivateKey, $storage-&gt;getPrivateKey('oauth_test_client'));</code>
-      <code>$this-&gt;assertEquals($globalPublicKey, $storage-&gt;getPublicKey('oauth_test_client'));</code>
-      <code>$this-&gt;assertEquals('rsa', $storage-&gt;getEncryptionAlgorithm('oauth_test_client'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getEncryptionAlgorithm('invalidclient'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getEncryptionAlgorithm('oauth_test_client2'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getPrivateKey('invalidclient'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getPrivateKey('oauth_test_client2'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getPublicKey('invalidclient'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getPublicKey('oauth_test_client2'));</code>
+    <UnevaluatedCode>
+      <code><![CDATA[$globalPrivateKey = file_get_contents(__DIR__ . '/../../TestAsset/data/key.pem');]]></code>
+      <code><![CDATA[$globalPublicKey  = file_get_contents(__DIR__ . '/../../TestAsset/data/pubkey.pem');]]></code>
+      <code><![CDATA[$this->assertEquals($globalPrivateKey, $storage->getPrivateKey('oauth_test_client'));]]></code>
+      <code><![CDATA[$this->assertEquals($globalPublicKey, $storage->getPublicKey('oauth_test_client'));]]></code>
+      <code><![CDATA[$this->assertEquals('rsa', $storage->getEncryptionAlgorithm('oauth_test_client'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getEncryptionAlgorithm('invalidclient'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getEncryptionAlgorithm('oauth_test_client2'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getPrivateKey('invalidclient'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getPrivateKey('oauth_test_client2'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getPublicKey('invalidclient'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getPublicKey('oauth_test_client2'));]]></code>
     </UnevaluatedCode>
   </file>
   <file src="test/Adapter/Pdo/RefreshTokenTest.php">
-    <UndefinedClass occurrences="1">
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
   </file>
   <file src="test/Adapter/Pdo/ScopeTest.php">
-    <UndefinedClass occurrences="2">
-      <code>NullStorage</code>
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
   </file>
   <file src="test/Adapter/Pdo/UserCredentialsTest.php">
-    <UndefinedClass occurrences="1">
-      <code>NullStorage</code>
+    <UndefinedClass>
+      <code><![CDATA[NullStorage]]></code>
     </UndefinedClass>
-    <UnevaluatedCode occurrences="10">
-      <code>$claims = $storage-&gt;getUserClaims('oauth_test_user', 'address');</code>
-      <code>$claims = $storage-&gt;getUserClaims('oauth_test_user', 'email');</code>
-      <code>$claims = $storage-&gt;getUserClaims('oauth_test_user', 'phone');</code>
-      <code>$claims = $storage-&gt;getUserClaims('oauth_test_user', 'profile');</code>
-      <code>$this-&gt;assertFalse($claims = $storage-&gt;getUserClaims('invalid', 'invalid'));</code>
-      <code>$this-&gt;assertFalse($storage-&gt;getUserClaims('oauth_test_user', 'invalid'));</code>
-      <code>$this-&gt;assertTrue(is_array($claims));</code>
-      <code>$this-&gt;assertTrue(is_array($claims));</code>
-      <code>$this-&gt;assertTrue(is_array($claims));</code>
-      <code>$this-&gt;assertTrue(is_array($claims));</code>
+    <UnevaluatedCode>
+      <code><![CDATA[$claims = $storage->getUserClaims('oauth_test_user', 'address');]]></code>
+      <code><![CDATA[$claims = $storage->getUserClaims('oauth_test_user', 'email');]]></code>
+      <code><![CDATA[$claims = $storage->getUserClaims('oauth_test_user', 'phone');]]></code>
+      <code><![CDATA[$claims = $storage->getUserClaims('oauth_test_user', 'profile');]]></code>
+      <code><![CDATA[$this->assertFalse($claims = $storage->getUserClaims('invalid', 'invalid'));]]></code>
+      <code><![CDATA[$this->assertFalse($storage->getUserClaims('oauth_test_user', 'invalid'));]]></code>
+      <code><![CDATA[$this->assertTrue(is_array($claims));]]></code>
+      <code><![CDATA[$this->assertTrue(is_array($claims));]]></code>
+      <code><![CDATA[$this->assertTrue(is_array($claims));]]></code>
+      <code><![CDATA[$this->assertTrue(is_array($claims));]]></code>
     </UnevaluatedCode>
   </file>
   <file src="test/Controller/AuthControllerTest.php">
-    <ArgumentTypeCoercion occurrences="2">
-      <code>$request</code>
-      <code>$request</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$request]]></code>
+      <code><![CDATA[$request]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod occurrences="1">
-      <code>getSqlStringForSqlObject</code>
+    <DeprecatedMethod>
+      <code><![CDATA[getSqlStringForSqlObject]]></code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="17">
-      <code>$adapter</code>
-      <code>$adapter::QUERY_MODE_EXECUTE</code>
-      <code>$location</code>
-      <code>$location</code>
-      <code>$pdo</code>
-      <code>$r-&gt;getValue($adapter)</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
+    <MixedArgument>
+      <code><![CDATA[$adapter]]></code>
+      <code><![CDATA[$adapter]]></code>
+      <code><![CDATA[$adapter::QUERY_MODE_EXECUTE]]></code>
+      <code><![CDATA[$adapter::QUERY_MODE_EXECUTE]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$r->getValue($adapter)]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="25">
-      <code>$config['api-tools-oauth2']</code>
-      <code>$config['api-tools-oauth2']</code>
-      <code>$oauthConfig['allow_implicit']</code>
-      <code>$post['access_token']</code>
-      <code>$post['grant_type']</code>
-      <code>$response['detail']</code>
-      <code>$response['detail']</code>
-      <code>$response['detail']</code>
-      <code>$response['error']</code>
-      <code>$response['error']</code>
-      <code>$response['error_description']</code>
-      <code>$response['error_description']</code>
-      <code>$response['message']</code>
-      <code>$response['message']</code>
-      <code>$response['status']</code>
-      <code>$response['status']</code>
-      <code>$response['status']</code>
-      <code>$response['success']</code>
-      <code>$response['success']</code>
-      <code>$response['title']</code>
-      <code>$response['title']</code>
-      <code>$response['title']</code>
-      <code>$results[0]</code>
-      <code>$server['PHP_AUTH_PW']</code>
-      <code>$server['PHP_AUTH_USER']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-oauth2']]]></code>
+      <code><![CDATA[$config['api-tools-oauth2']]]></code>
+      <code><![CDATA[$oauthConfig['allow_implicit']]]></code>
+      <code><![CDATA[$post['access_token']]]></code>
+      <code><![CDATA[$post['grant_type']]]></code>
+      <code><![CDATA[$response['detail']]]></code>
+      <code><![CDATA[$response['detail']]]></code>
+      <code><![CDATA[$response['detail']]]></code>
+      <code><![CDATA[$response['error']]]></code>
+      <code><![CDATA[$response['error']]]></code>
+      <code><![CDATA[$response['error_description']]]></code>
+      <code><![CDATA[$response['error_description']]]></code>
+      <code><![CDATA[$response['message']]]></code>
+      <code><![CDATA[$response['message']]]></code>
+      <code><![CDATA[$response['status']]]></code>
+      <code><![CDATA[$response['status']]]></code>
+      <code><![CDATA[$response['status']]]></code>
+      <code><![CDATA[$response['success']]]></code>
+      <code><![CDATA[$response['success']]]></code>
+      <code><![CDATA[$response['title']]]></code>
+      <code><![CDATA[$response['title']]]></code>
+      <code><![CDATA[$response['title']]]></code>
+      <code><![CDATA[$results[0]]]></code>
+      <code><![CDATA[$results[0]['user_id']]]></code>
+      <code><![CDATA[$server['PHP_AUTH_PW']]]></code>
+      <code><![CDATA[$server['PHP_AUTH_USER']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$config['api-tools-oauth2']</code>
+    <MixedArrayAssignment>
+      <code><![CDATA[$config['api-tools-oauth2']]]></code>
+      <code><![CDATA[$config['api-tools-oauth2']['api_problem_error_response']]]></code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="20">
-      <code>$adapter</code>
-      <code>$allowImplicit</code>
-      <code>$config</code>
-      <code>$config</code>
-      <code>$db</code>
-      <code>$location</code>
-      <code>$location</code>
-      <code>$oauthConfig</code>
-      <code>$pdo</code>
-      <code>$post</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$results</code>
-      <code>$server</code>
-      <code>$token</code>
+    <MixedAssignment>
+      <code><![CDATA[$adapter]]></code>
+      <code><![CDATA[$allowImplicit]]></code>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$db]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$oauthConfig]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$post]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$results]]></code>
+      <code><![CDATA[$server]]></code>
+      <code><![CDATA[$token]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="32">
-      <code>addHeaderLine</code>
-      <code>exec</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
+    <MixedMethodCall>
+      <code><![CDATA[addHeaderLine]]></code>
+      <code><![CDATA[exec]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$token</code>
+    <MixedOperand>
+      <code><![CDATA[$token]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$adapter</code>
-      <code>$response</code>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$adapter]]></code>
+      <code><![CDATA[$response]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidMethodCall occurrences="8">
-      <code>addHeaderLine</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getUri</code>
-      <code>getUri</code>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[addHeaderLine]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
     </PossiblyInvalidMethodCall>
-    <PossiblyUndefinedMethod occurrences="7">
-      <code>addHeaderLine</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>getFieldValue</code>
-      <code>toArray</code>
+    <PossiblyUndefinedMethod>
+      <code><![CDATA[addHeaderLine]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[getFieldValue]]></code>
+      <code><![CDATA[toArray]]></code>
     </PossiblyUndefinedMethod>
-    <PossiblyUndefinedVariable occurrences="2">
-      <code>$code</code>
-      <code>$code</code>
+    <PossiblyUndefinedVariable>
+      <code><![CDATA[$code]]></code>
+      <code><![CDATA[$code]]></code>
     </PossiblyUndefinedVariable>
-    <UndefinedInterfaceMethod occurrences="44">
-      <code>bootstrap</code>
-      <code>bootstrap</code>
-      <code>bootstrap</code>
-      <code>getConfig</code>
-      <code>getHeaders</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getQuery</code>
-      <code>getQuery</code>
-      <code>getQuery</code>
-      <code>getQuery</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>setAllowOverride</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setPost</code>
-      <code>setQuery</code>
-      <code>setService</code>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $allowImplicit]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[bootstrap]]></code>
+      <code><![CDATA[bootstrap]]></code>
+      <code><![CDATA[bootstrap]]></code>
+      <code><![CDATA[getConfig]]></code>
+      <code><![CDATA[getHeaders]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getQuery]]></code>
+      <code><![CDATA[getQuery]]></code>
+      <code><![CDATA[getQuery]]></code>
+      <code><![CDATA[getQuery]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[setAllowOverride]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setPost]]></code>
+      <code><![CDATA[setQuery]]></code>
+      <code><![CDATA[setService]]></code>
     </UndefinedInterfaceMethod>
-    <UndefinedMethod occurrences="2">
-      <code>getUri</code>
-      <code>getUri</code>
+    <UndefinedMethod>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
     </UndefinedMethod>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+      <code><![CDATA[setAccessible]]></code>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
   <file src="test/Controller/AuthControllerWithCustomAdapterTest.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
+    <MixedArgument>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$response['detail']</code>
-      <code>$response['status']</code>
-      <code>$response['title']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$response['detail']]]></code>
+      <code><![CDATA[$response['status']]]></code>
+      <code><![CDATA[$response['title']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$response</code>
+    <MixedAssignment>
+      <code><![CDATA[$response]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
+    <MixedMethodCall>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidMethodCall occurrences="1">
-      <code>getFieldValue</code>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[getFieldValue]]></code>
     </PossiblyInvalidMethodCall>
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>getFieldValue</code>
+    <PossiblyUndefinedMethod>
+      <code><![CDATA[getFieldValue]]></code>
     </PossiblyUndefinedMethod>
   </file>
   <file src="test/Controller/AuthControllerWithLaminasAuthenticationServiceTest.php">
-    <MixedArgument occurrences="4">
-      <code>$code</code>
-      <code>$location</code>
-      <code>$pdo</code>
-      <code>$this-&gt;getResponse()-&gt;getContent()</code>
+    <MixedArgument>
+      <code><![CDATA[$code]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$this->getResponse()->getContent()]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$response['access_token']</code>
-      <code>$row['user_id']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$response['access_token']]]></code>
+      <code><![CDATA[$row['user_id']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="6">
-      <code>$authentication</code>
-      <code>$db</code>
-      <code>$location</code>
-      <code>$pdo</code>
-      <code>$row</code>
-      <code>$this-&gt;db</code>
+    <MixedAssignment>
+      <code><![CDATA[$authentication]]></code>
+      <code><![CDATA[$db]]></code>
+      <code><![CDATA[$location]]></code>
+      <code><![CDATA[$pdo]]></code>
+      <code><![CDATA[$row]]></code>
+      <code><![CDATA[$this->db]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>AuthenticationService</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[AuthenticationService]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="9">
-      <code>andReturn</code>
-      <code>andReturn</code>
-      <code>exec</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>setStorage</code>
+    <MixedMethodCall>
+      <code><![CDATA[andReturn]]></code>
+      <code><![CDATA[andReturn]]></code>
+      <code><![CDATA[exec]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[set]]></code>
+      <code><![CDATA[setStorage]]></code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>$authentication</code>
+    <MixedReturnStatement>
+      <code><![CDATA[$authentication]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidMethodCall occurrences="1">
-      <code>getUri</code>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[getUri]]></code>
     </PossiblyInvalidMethodCall>
-    <PossiblyUndefinedMethod occurrences="2">
-      <code>once</code>
-      <code>once</code>
-    </PossiblyUndefinedMethod>
-    <PossiblyUndefinedVariable occurrences="2">
-      <code>$code</code>
-      <code>$code</code>
+    <PossiblyUndefinedVariable>
+      <code><![CDATA[$code]]></code>
+      <code><![CDATA[$code]]></code>
     </PossiblyUndefinedVariable>
-    <UndefinedInterfaceMethod occurrences="9">
-      <code>bootstrap</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getPost</code>
-      <code>getServer</code>
-      <code>getServer</code>
-      <code>setMethod</code>
-      <code>setPost</code>
-      <code>setQuery</code>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[bootstrap]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[getServer]]></code>
+      <code><![CDATA[once]]></code>
+      <code><![CDATA[once]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setPost]]></code>
+      <code><![CDATA[setQuery]]></code>
     </UndefinedInterfaceMethod>
-    <UndefinedMagicMethod occurrences="2">
-      <code>once</code>
-      <code>once</code>
+    <UndefinedMagicMethod>
+      <code><![CDATA[once]]></code>
+      <code><![CDATA[once]]></code>
     </UndefinedMagicMethod>
-    <UndefinedMethod occurrences="1">
-      <code>getUri</code>
+    <UndefinedMethod>
+      <code><![CDATA[getUri]]></code>
     </UndefinedMethod>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
   <file src="test/Controller/CustomAdapter.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[bool]]></code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>parent::checkUserCredentials($username, $password)</code>
+    <MixedReturnStatement>
+      <code><![CDATA[parent::checkUserCredentials($username, $password)]]></code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="1">
-      <code>$clientId</code>
+    <ParamNameMismatch>
+      <code><![CDATA[$clientId]]></code>
+      <code><![CDATA[$clientId]]></code>
     </ParamNameMismatch>
   </file>
   <file src="test/Controller/TestAsset/CustomProblemDetailsException.php">
-    <MissingConstructor occurrences="2">
-      <code>$title</code>
-      <code>$type</code>
+    <MissingConstructor>
+      <code><![CDATA[$title]]></code>
+      <code><![CDATA[$type]]></code>
     </MissingConstructor>
   </file>
   <file src="test/Factory/OAuth2ServerFactoryTest.php">
-    <MixedArgument occurrences="1">
-      <code>constant('HHVM_VERSION')</code>
+    <DeprecatedMethod>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+      <code><![CDATA[getMockForAbstractClass]]></code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[constant('HHVM_VERSION')]]></code>
     </MixedArgument>
-    <TooManyArguments occurrences="1">
-      <code>$smFactory</code>
-    </TooManyArguments>
   </file>
   <file src="test/Factory/PdoAdapterFactoryTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$config['user_table']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['user_table']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
 </files>

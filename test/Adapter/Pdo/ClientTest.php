@@ -7,9 +7,10 @@ namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 use OAuth2\Storage\ClientInterface;
 
 use function mt_getrandmax;
+use function password_verify;
 use function random_int;
 
-class ClientTest extends AbstractBaseTest
+class ClientTest extends AbstractBaseTestCase
 {
     /** @dataProvider provideStorage */
     public function testGetClientDetails(ClientInterface $storage): void
@@ -95,7 +96,7 @@ class ClientTest extends AbstractBaseTest
 
         // valid client_id
         $details = $storage->getClientDetails($clientId);
-        $this->assertTrue($storage->getBcrypt()->verify('somesecret', $details['client_secret']));
+        $this->assertTrue(password_verify('somesecret', $details['client_secret']));
         $this->assertEquals($details['redirect_uri'], 'http://test.com');
         $this->assertEquals($details['grant_types'], 'client_credentials');
         $this->assertEquals($details['scope'], 'clientscope1');

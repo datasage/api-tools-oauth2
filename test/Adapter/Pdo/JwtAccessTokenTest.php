@@ -9,7 +9,7 @@ use DateTime;
 /**
  * @todo This adapter logic is not supported in the PDO adapter.
  */
-class JwtAccessTokenTest extends AbstractBaseTest
+class JwtAccessTokenTest extends AbstractBaseTestCase
 {
     /**
      * @dataProvider provideStorage

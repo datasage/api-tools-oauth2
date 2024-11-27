@@ -3,8 +3,6 @@
 
 declare(strict_types=1);
 
-use Laminas\Crypt\Password\Bcrypt;
-
 $autoload = realpath(__DIR__ . '/../vendor/autoload.php');
 if (! $autoload) {
     // Attempt to locate it relative to the application root
@@ -19,7 +17,7 @@ if (! $autoload) {
 
 include $autoload;
 
-$help   = <<<EOH
+$help = <<<EOH
 Usage:
   php bcrypt.php <password> [cost]
 
@@ -29,14 +27,14 @@ Arguments:
                   (default is %d)
 
 EOH;
-$bcrypt = new Bcrypt();
 
 if ($argc < 2) {
-    printf($help, $bcrypt->getCost());
+    printf($help, 10);
     exit(1);
 }
 
+$cost = 10;
 if (isset($argv[2])) {
-    $bcrypt->setCost($argv[2]);
+    $cost = $argv[2];
 }
-printf("%s\n", $bcrypt->create($argv[1]));
+printf("%s\n", password_hash($argv[0], PASSWORD_BCRYPT, ['cost' => $cost]));

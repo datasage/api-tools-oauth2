@@ -9,7 +9,7 @@ use OAuth2\Storage\RefreshTokenInterface;
 
 use function time;
 
-class RefreshTokenTest extends AbstractBaseTest
+class RefreshTokenTest extends AbstractBaseTestCase
 {
     /**
      * @dataProvider provideStorage
