@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
 use OAuth2\Storage\NullStorage;
-use OAuth2\Storage\UserCredentialsInterface;
 
 use function is_array;
 
 class UserCredentialsTest extends AbstractBaseTestCase
 {
-    /** @dataProvider provideStorage */
-    public function testCheckUserCredentials(UserCredentialsInterface $storage): void
+    public function testCheckUserCredentials(): void
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
 
@@ -38,12 +37,12 @@ class UserCredentialsTest extends AbstractBaseTestCase
     }
 
     /**
-     * @dataProvider provideStorage
      * @todo Support OpenID, and provide validation via testing.
      * @psalm-return never
      */
-    public function testUserClaims(UserCredentialsInterface $storage)
+    public function testUserClaims()
     {
+        $storage = $this->createStorage();
         $this->markTestIncomplete('OpenID support is not yet implemented');
 
         $claims = $storage->getUserClaims('oauth_test_user', 'profile');

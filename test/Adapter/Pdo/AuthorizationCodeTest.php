@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
-use OAuth2\Storage\AccessTokenInterface;
-use OAuth2\Storage\AuthorizationCodeInterface;
-
 use function time;
 
 class AuthorizationCodeTest extends AbstractBaseTestCase
 {
-    /** @dataProvider provideStorage */
-    public function testGetAuthorizationCode(AuthorizationCodeInterface $storage): void
+    public function testGetAuthorizationCode(): void
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
         }
@@ -27,9 +24,9 @@ class AuthorizationCodeTest extends AbstractBaseTestCase
         $this->assertNotNull($details);
     }
 
-    /** @dataProvider provideStorage */
-    public function testSetAuthorizationCode(AuthorizationCodeInterface $storage): void
+    public function testSetAuthorizationCode(): void
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
         }
@@ -87,9 +84,9 @@ class AuthorizationCodeTest extends AbstractBaseTestCase
         $this->assertEquals($code['expires'], $expires);
     }
 
-    /** @dataProvider provideStorage */
-    public function testExpireAccessToken(AccessTokenInterface $storage): void
+    public function testExpireAccessToken(): void
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
         }

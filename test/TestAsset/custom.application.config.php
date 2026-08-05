@@ -7,7 +7,6 @@ use Laminas\Router\Module;
 $modules = [
     'Laminas\ApiTools\ContentNegotiation',
     'Laminas\ApiTools\OAuth2',
-    'Laminas\Mvc\I18n',
 ];
 
 if (class_exists(Module::class)) {

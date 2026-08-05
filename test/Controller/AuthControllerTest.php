@@ -46,8 +46,7 @@ class AuthControllerTest extends AbstractHttpControllerTestCase
     {
         $pdo = $this->getApplication()->getServiceManager()->get(PdoAdapter::class);
         $r   = new ReflectionProperty($pdo, 'db');
-        $r->setAccessible(true);
-        $db = $r->getValue($pdo);
+        $db  = $r->getValue($pdo);
 
         $sql = file_get_contents(__DIR__ . '/../TestAsset/database/pdo.sql');
         $db->exec($sql);
@@ -63,9 +62,8 @@ class AuthControllerTest extends AbstractHttpControllerTestCase
             return $this->db;
         }
 
-        $adapter = $this->getApplication()->getServiceManager()->get(PdoAdapter::class);
-        $r       = new ReflectionProperty($adapter, 'db');
-        $r->setAccessible(true);
+        $adapter  = $this->getApplication()->getServiceManager()->get(PdoAdapter::class);
+        $r        = new ReflectionProperty($adapter, 'db');
         $this->db = new Adapter(new PdoDriver($r->getValue($adapter)));
         return $this->db;
     }
@@ -73,7 +71,6 @@ class AuthControllerTest extends AbstractHttpControllerTestCase
     public function setRequest(AuthController $controller, Request $request): void
     {
         $r = new ReflectionProperty($controller, 'request');
-        $r->setAccessible(true);
         $r->setValue($controller, $request);
     }
 

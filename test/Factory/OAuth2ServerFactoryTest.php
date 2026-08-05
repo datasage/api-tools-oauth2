@@ -202,15 +202,15 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
         }
 
         $storage = [
-            'access_token'       => $this->getMockForAbstractClass(AccessTokenInterface::class),
-            'authorization_code' => $this->getMockForAbstractClass(AuthorizationCodeInterface::class),
-            'client_credentials' => $this->getMockForAbstractClass(ClientCredentialsInterface::class),
-            'client'             => $this->getMockForAbstractClass(ClientInterface::class),
-            'refresh_token'      => $this->getMockForAbstractClass(RefreshTokenInterface::class),
-            'user_credentials'   => $this->getMockForAbstractClass(UserCredentialsInterface::class),
-            'public_key'         => $this->getMockForAbstractClass(PublicKeyInterface::class),
-            'jwt_bearer'         => $this->getMockForAbstractClass(JwtBearerInterface::class),
-            'scope'              => $this->getMockForAbstractClass(ScopeInterface::class),
+            'access_token'       => $this->createMock(AccessTokenInterface::class),
+            'authorization_code' => $this->createMock(AuthorizationCodeInterface::class),
+            'client_credentials' => $this->createMock(ClientCredentialsInterface::class),
+            'client'             => $this->createMock(ClientInterface::class),
+            'refresh_token'      => $this->createMock(RefreshTokenInterface::class),
+            'user_credentials'   => $this->createMock(UserCredentialsInterface::class),
+            'public_key'         => $this->createMock(PublicKeyInterface::class),
+            'jwt_bearer'         => $this->createMock(JwtBearerInterface::class),
+            'scope'              => $this->createMock(ScopeInterface::class),
         ];
 
         $this->services->setService('OAuth2\Storage\AccessToken', $storage['access_token']);

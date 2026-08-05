@@ -8,7 +8,6 @@ $modules = [
     'Laminas\ApiTools\ContentNegotiation',
     'Laminas\ApiTools\OAuth2',
     'Laminas\I18n',
-    'Laminas\Mvc\I18n',
 ];
 
 if (class_exists(Module::class)) {

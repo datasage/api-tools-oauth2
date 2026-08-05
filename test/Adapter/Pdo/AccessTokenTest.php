@@ -4,18 +4,16 @@ declare(strict_types=1);
 
 namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
-use OAuth2\Storage\AccessTokenInterface;
-
 use function time;
 
 class AccessTokenTest extends AbstractBaseTestCase
 {
     /**
-     * @dataProvider provideStorage
      * @return void
      */
-    public function testSetAccessToken(AccessTokenInterface $storage)
+    public function testSetAccessToken()
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
 

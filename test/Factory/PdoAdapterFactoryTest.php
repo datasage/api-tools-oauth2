@@ -62,9 +62,8 @@ class PdoAdapterFactoryTest extends AbstractHttpControllerTestCase
         $adapter = ($this->factory)($this->services);
         $this->assertInstanceOf(PdoAdapter::class, $adapter);
 
-        $r = new ReflectionObject($adapter);
-        $c = $r->getProperty('config');
-        $c->setAccessible(true);
+        $r      = new ReflectionObject($adapter);
+        $c      = $r->getProperty('config');
         $config = $c->getValue($adapter);
         $this->assertEquals('my_users', $config['user_table']);
     }

@@ -27,20 +27,24 @@ abstract class AbstractBaseTestCase extends AbstractHttpControllerTestCase
      * @psalm-return array<array-key, array{0: PdoAdapter}>
      * @throws ReflectionException
      */
-    public function provideStorage(): array
+    /**
+     * Builds the PDO storage adapter and loads the SQL fixture.
+     *
+     * This was previously a @dataProvider, but it depends on instance state
+     * (setUp() and the booted application), which PHPUnit 11 forbids: data
+     * providers must be static. Tests call it directly instead.
+     */
+    protected function createStorage(): PdoAdapter
     {
-        $this->setUp();
-
         $serviceManager = $this->getApplication()->getServiceManager();
         $pdo            = $serviceManager->get(PdoAdapter::class);
 
-        $r = new ReflectionProperty($pdo, 'db');
-        $r->setAccessible(true);
+        $r  = new ReflectionProperty($pdo, 'db');
         $db = $r->getValue($pdo);
 
         $sql = file_get_contents(__DIR__ . '/../../TestAsset/database/pdo.sql');
         $db->exec($sql);
 
-        return [[$pdo]];
+        return $pdo;
     }
 }

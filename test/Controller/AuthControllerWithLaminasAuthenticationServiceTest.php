@@ -38,8 +38,7 @@ class AuthControllerWithLaminasAuthenticationServiceTest extends AbstractHttpCon
     {
         $pdo = $this->getApplication()->getServiceManager()->get(PdoAdapter::class);
         $r   = new ReflectionProperty($pdo, 'db');
-        $r->setAccessible(true);
-        $db = $r->getValue($pdo);
+        $db  = $r->getValue($pdo);
 
         $sql = file_get_contents(__DIR__ . '/../TestAsset/database/db_oauth2.sql');
         $db->exec($sql);

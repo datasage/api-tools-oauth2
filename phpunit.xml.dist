@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true" cacheDirectory=".phpunit.cache">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true" cacheDirectory=".phpunit.cache">
   <testsuites>
     <testsuite name="adapter-pdo">
       <directory>./test/Adapter/Pdo</directory>
     </testsuite>
     <testsuite name="Laminas\ApiTools\OAuth2 Tests">
       <directory>./test</directory>
+      <!-- Already covered by the adapter-pdo suite above; PHPUnit 11 rejects a
+           file belonging to more than one test suite. -->
+      <exclude>./test/Adapter/Pdo</exclude>
     </testsuite>
   </testsuites>
   <source>

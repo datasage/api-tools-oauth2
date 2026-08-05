@@ -12,11 +12,11 @@ use DateTime;
 class JwtAccessTokenTest extends AbstractBaseTestCase
 {
     /**
-     * @dataProvider provideStorage
      * @psalm-return never
      */
-    public function testJwtWithJti(object $storage)
+    public function testJwtWithJti()
     {
+        $storage = $this->createStorage();
         $this->markTestIncomplete('JWT access token is not yet supported in PDO adapter');
 
         $expires = new DateTime('today +1 day');
