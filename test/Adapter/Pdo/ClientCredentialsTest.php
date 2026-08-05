@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
-use OAuth2\Storage\ClientCredentialsInterface;
-
 class ClientCredentialsTest extends AbstractBaseTestCase
 {
-    /** @dataProvider provideStorage */
-    public function testCheckClientCredentials(ClientCredentialsInterface $storage): void
+    public function testCheckClientCredentials(): void
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
 

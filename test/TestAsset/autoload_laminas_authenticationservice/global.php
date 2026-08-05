@@ -36,7 +36,6 @@ return array(
     ),
     'service_manager' => array(
         'aliases' => array(
-            'translator' => 'MvcTranslator',
             'Laminas\ApiTools\OAuth2\Provider\UserId' => \Laminas\ApiTools\OAuth2\Provider\UserId\AuthenticationService::class,
         ),
         'invokables' => array(

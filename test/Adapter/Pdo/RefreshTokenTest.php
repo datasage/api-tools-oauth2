@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
 use OAuth2\Storage\NullStorage;
-use OAuth2\Storage\RefreshTokenInterface;
 
 use function time;
 
 class RefreshTokenTest extends AbstractBaseTestCase
 {
     /**
-     * @dataProvider provideStorage
      * @return void
      */
-    public function testSetRefreshToken(RefreshTokenInterface $storage)
+    public function testSetRefreshToken()
     {
+        $storage = $this->createStorage();
         if ($storage instanceof NullStorage) {
             $this->markTestSkipped('Skipped Storage: ' . $storage->getMessage());
 
