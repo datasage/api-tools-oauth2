@@ -6,6 +6,7 @@ namespace Laminas\ApiTools\OAuth2\Provider\UserId;
 
 use Laminas\Authentication\AuthenticationServiceInterface;
 use Laminas\Stdlib\RequestInterface;
+use Override;
 
 use function is_array;
 use function is_object;
@@ -38,6 +39,7 @@ class AuthenticationService implements UserIdProviderInterface
      *
      * @return mixed
      */
+    #[Override]
     public function __invoke(RequestInterface $request)
     {
         if (null === $this->authenticationService) {

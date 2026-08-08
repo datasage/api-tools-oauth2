@@ -9,6 +9,7 @@ use Laminas\ApiTools\OAuth2\Provider\UserId;
 use Laminas\ServiceManager\FactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use OAuth2\Server as OAuth2Server;
+use Override;
 use Psr\Container\ContainerInterface;
 
 class AuthControllerFactory implements FactoryInterface
@@ -18,6 +19,7 @@ class AuthControllerFactory implements FactoryInterface
      * @param null|array $options
      * @return AuthController
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $authController = new AuthController(
@@ -37,6 +39,7 @@ class AuthControllerFactory implements FactoryInterface
      * @param null|string $requestedName
      * @return AuthController
      */
+    #[Override]
     public function createService(ServiceLocatorInterface $controllers, $name = null, $requestedName = null)
     {
         $requestedName = $requestedName ?: AuthController::class;

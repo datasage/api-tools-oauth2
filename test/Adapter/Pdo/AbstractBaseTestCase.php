@@ -4,6 +4,7 @@ namespace LaminasTest\ApiTools\OAuth2\Adapter\Pdo;
 
 use Laminas\ApiTools\OAuth2\Adapter\PdoAdapter;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Override;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -11,6 +12,7 @@ use function file_get_contents;
 
 abstract class AbstractBaseTestCase extends AbstractHttpControllerTestCase
 {
+    #[Override]
     protected function setUp(): void
     {
         $this->setApplicationConfig(

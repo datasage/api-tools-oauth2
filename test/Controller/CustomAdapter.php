@@ -6,6 +6,7 @@ namespace LaminasTest\ApiTools\OAuth2\Controller;
 
 use Laminas\ApiTools\ApiProblem\Exception\DomainException;
 use OAuth2\Storage\Memory;
+use Override;
 
 class CustomAdapter extends Memory
 {
@@ -14,6 +15,7 @@ class CustomAdapter extends Memory
      * @param string $password
      * @return bool
      */
+    #[Override]
     public function checkUserCredentials($username, $password)
     {
         // mocking logic to throw an exception if the user is banned
@@ -28,6 +30,7 @@ class CustomAdapter extends Memory
     }
 
     /** @param int|string $clientId */
+    #[Override]
     public function isPublicClient($clientId): bool
     {
         return true;

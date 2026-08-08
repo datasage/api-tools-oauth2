@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Laminas\ApiTools\OAuth2\Adapter;
 
 use OAuth2\Storage\Pdo as OAuth2Pdo;
+use Override;
 
 use function func_num_args;
 use function password_hash;
@@ -39,6 +40,7 @@ class PdoAdapter extends OAuth2Pdo
      * @param string $password
      * @return bool
      */
+    #[Override]
     protected function checkPassword($user, $password)
     {
         return $this->verifyHash($password, $user['password']);
@@ -83,6 +85,7 @@ class PdoAdapter extends OAuth2Pdo
      * @param string $clientSecret
      * @return bool
      */
+    #[Override]
     public function checkClientCredentials($clientId, $clientSecret = null)
     {
         $stmt = $this->db->prepare(sprintf(
@@ -112,6 +115,7 @@ class PdoAdapter extends OAuth2Pdo
      * @param string $userId
      * @return bool
      */
+    #[Override]
     public function setClientDetails(
         $clientId,
         $clientSecret = null,
@@ -187,6 +191,7 @@ class PdoAdapter extends OAuth2Pdo
      * @param string $lastName
      * @return bool
      */
+    #[Override]
     public function setUser($username, $password, $firstName = null, $lastName = null)
     {
         // do not store in plaintext, use bcrypt

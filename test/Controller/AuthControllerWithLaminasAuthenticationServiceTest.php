@@ -10,6 +10,7 @@ use Laminas\Authentication\Storage\StorageInterface;
 use Laminas\Stdlib\Parameters;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Mockery as M;
+use Override;
 use PDO;
 use ReflectionProperty;
 
@@ -24,6 +25,7 @@ class AuthControllerWithLaminasAuthenticationServiceTest extends AbstractHttpCon
     /** @var PDO */
     protected $db;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->setApplicationConfig(
