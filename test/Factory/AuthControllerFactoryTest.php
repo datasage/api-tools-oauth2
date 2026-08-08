@@ -29,8 +29,7 @@ class AuthControllerFactoryTest extends AbstractHttpControllerTestCase
         };
         $this->services->setService('Laminas\ApiTools\OAuth2\Service\OAuth2Server', $oauthServerFactory);
 
-        $userIdProvider = $this->getMockBuilder(UserIdProviderInterface::class)
-            ->getMock();
+        $userIdProvider = $this->createStub(UserIdProviderInterface::class);
         $this->services->setService('Laminas\ApiTools\OAuth2\Provider\UserId', $userIdProvider);
 
         $controller = $this->factory->__invoke($this->services, AuthController::class);

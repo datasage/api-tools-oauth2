@@ -73,7 +73,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
 
     public function testServiceCreatedWithDefaults(): void
     {
-        $adapter = $this->getMockBuilder(Pdo::class)->disableOriginalConstructor()->getMock();
+        $adapter = $this->createStub(Pdo::class);
         $this->services->setService('TestAdapter', $adapter);
         $this->services->setService('config', [
             'api-tools-oauth2' => [
@@ -112,7 +112,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
 
     public function testServiceCreatedWithOverriddenValues(): void
     {
-        $adapter = $this->getMockBuilder(Pdo::class)->disableOriginalConstructor()->getMock();
+        $adapter = $this->createStub(Pdo::class);
         $this->services->setService('TestAdapter', $adapter);
         $this->services->setService('config', [
             'api-tools-oauth2' => [
@@ -154,7 +154,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
 
     public function testServiceCreatedWithOverriddenValuesInOptionsSubArray(): void
     {
-        $adapter = $this->getMockBuilder(Pdo::class)->disableOriginalConstructor()->getMock();
+        $adapter = $this->createStub(Pdo::class);
 
         $this->services->setService('TestAdapter', $adapter);
         $this->services->setService('config', [
@@ -204,15 +204,15 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
         }
 
         $storage = [
-            'access_token'       => $this->createMock(AccessTokenInterface::class),
-            'authorization_code' => $this->createMock(AuthorizationCodeInterface::class),
-            'client_credentials' => $this->createMock(ClientCredentialsInterface::class),
-            'client'             => $this->createMock(ClientInterface::class),
-            'refresh_token'      => $this->createMock(RefreshTokenInterface::class),
-            'user_credentials'   => $this->createMock(UserCredentialsInterface::class),
-            'public_key'         => $this->createMock(PublicKeyInterface::class),
-            'jwt_bearer'         => $this->createMock(JwtBearerInterface::class),
-            'scope'              => $this->createMock(ScopeInterface::class),
+            'access_token'       => $this->createStub(AccessTokenInterface::class),
+            'authorization_code' => $this->createStub(AuthorizationCodeInterface::class),
+            'client_credentials' => $this->createStub(ClientCredentialsInterface::class),
+            'client'             => $this->createStub(ClientInterface::class),
+            'refresh_token'      => $this->createStub(RefreshTokenInterface::class),
+            'user_credentials'   => $this->createStub(UserCredentialsInterface::class),
+            'public_key'         => $this->createStub(PublicKeyInterface::class),
+            'jwt_bearer'         => $this->createStub(JwtBearerInterface::class),
+            'scope'              => $this->createStub(ScopeInterface::class),
         ];
 
         $this->services->setService('OAuth2\Storage\AccessToken', $storage['access_token']);
@@ -272,7 +272,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
 
     public function testServiceCreatedWithSelectedGrandTypes(): void
     {
-        $adapter = $this->getMockBuilder(Pdo::class)->disableOriginalConstructor()->getMock();
+        $adapter = $this->createStub(Pdo::class);
         $this->services->setService('TestAdapter', $adapter);
         $this->services->setService('config', [
             'api-tools-oauth2' => [
@@ -305,7 +305,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
 
     public function testSubsequentCallsReturnTheSameInstance(): void
     {
-        $adapter = $this->getMockBuilder(Pdo::class)->disableOriginalConstructor()->getMock();
+        $adapter = $this->createStub(Pdo::class);
         $this->services->setService('TestAdapter', $adapter);
         $this->services->setService('config', [
             'api-tools-oauth2' => [
