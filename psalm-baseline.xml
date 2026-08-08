@@ -31,12 +31,6 @@
     <ImplementedParamTypeMismatch>
       <code><![CDATA[$grantTypes]]></code>
     </ImplementedParamTypeMismatch>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function checkPassword($user, $password)]]></code>
-      <code><![CDATA[public function checkClientCredentials($clientId, $clientSecret = null)]]></code>
-      <code><![CDATA[public function setClientDetails(]]></code>
-      <code><![CDATA[public function setUser($username, $password, $firstName = null, $lastName = null)]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$config['bcrypt_cost']]]></code>
       <code><![CDATA[$result['client_secret']]]></code>
@@ -205,10 +199,6 @@
     <DeprecatedInterface>
       <code><![CDATA[AuthControllerFactory]]></code>
     </DeprecatedInterface>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)]]></code>
-      <code><![CDATA[public function createService(ServiceLocatorInterface $controllers, $name = null, $requestedName = null)]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$container->get(UserId::class)]]></code>
       <code><![CDATA[UserId::class]]></code>
@@ -344,9 +334,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[AuthenticationService]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function __invoke(RequestInterface $request)]]></code>
-    </MissingOverrideAttribute>
     <MixedAssignment>
       <code><![CDATA[$identity]]></code>
       <code><![CDATA[$this->userId]]></code>
@@ -369,9 +356,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/Adapter/Pdo/AbstractBaseTestCase.php">
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$pdo]]></code>
       <code><![CDATA[$pdo]]></code>
@@ -558,9 +542,6 @@ END_WRAP
       <code><![CDATA[$problem->type]]></code>
       <code><![CDATA[$problem->type]]></code>
     </InaccessibleProperty>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$adapter]]></code>
       <code><![CDATA[$adapter]]></code>
@@ -773,9 +754,6 @@ END_WRAP
     <ClassMustBeFinal>
       <code><![CDATA[AuthControllerWithCustomAdapterTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$this->getResponse()->getContent()]]></code>
     </MixedArgument>
@@ -804,9 +782,6 @@ END_WRAP
     <ClassMustBeFinal>
       <code><![CDATA[AuthControllerWithLaminasAuthenticationServiceTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$code]]></code>
       <code><![CDATA[$location]]></code>
@@ -876,10 +851,6 @@ END_WRAP
     <ClassMustBeFinal>
       <code><![CDATA[CustomAdapter]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function checkUserCredentials($username, $password)]]></code>
-      <code><![CDATA[public function isPublicClient($clientId): bool]]></code>
-    </MissingOverrideAttribute>
     <MixedReturnStatement>
       <code><![CDATA[parent::checkUserCredentials($username, $password)]]></code>
     </MixedReturnStatement>
@@ -901,19 +872,11 @@ END_WRAP
       <code><![CDATA[$title]]></code>
       <code><![CDATA[$type]]></code>
     </MissingConstructor>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function getAdditionalDetails()]]></code>
-      <code><![CDATA[public function getTitle()]]></code>
-      <code><![CDATA[public function getType()]]></code>
-    </MissingOverrideAttribute>
   </file>
   <file src="test/Factory/AuthControllerFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[AuthControllerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <PossiblyUnusedProperty>
       <code><![CDATA[$controllers]]></code>
     </PossiblyUnusedProperty>
@@ -922,9 +885,6 @@ END_WRAP
     <ClassMustBeFinal>
       <code><![CDATA[OAuth2ServerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[constant('HHVM_VERSION')]]></code>
     </MixedArgument>
@@ -933,9 +893,6 @@ END_WRAP
     <ClassMustBeFinal>
       <code><![CDATA[PdoAdapterFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedArrayAccess>
       <code><![CDATA[$config['user_table']]]></code>
     </MixedArrayAccess>

@@ -9,6 +9,7 @@ use Laminas\ApiTools\OAuth2\Controller\Exception\RuntimeException;
 use Laminas\ApiTools\OAuth2\Factory\PdoAdapterFactory;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Override;
 use PDO;
 use ReflectionObject;
 
@@ -86,6 +87,7 @@ class PdoAdapterFactoryTest extends AbstractHttpControllerTestCase
         $this->assertInstanceOf(PdoAdapter::class, $adapter);
     }
 
+    #[Override]
     protected function setUp(): void
     {
         $this->factory  = new PdoAdapterFactory();

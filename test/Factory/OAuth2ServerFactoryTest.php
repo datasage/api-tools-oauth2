@@ -25,6 +25,7 @@ use OAuth2\Storage\PublicKeyInterface;
 use OAuth2\Storage\RefreshTokenInterface;
 use OAuth2\Storage\ScopeInterface;
 use OAuth2\Storage\UserCredentialsInterface;
+use Override;
 
 use function constant;
 use function defined;
@@ -38,6 +39,7 @@ class OAuth2ServerFactoryTest extends AbstractHttpControllerTestCase
     /** @var ServiceManager */
     protected $services;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->factory  = new OAuth2ServerFactory();

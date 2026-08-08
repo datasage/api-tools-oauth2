@@ -10,6 +10,7 @@ use Laminas\ApiTools\OAuth2\Provider\UserId\UserIdProviderInterface;
 use Laminas\Mvc\Controller\ControllerManager;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Override;
 
 class AuthControllerFactoryTest extends AbstractHttpControllerTestCase
 {
@@ -38,6 +39,7 @@ class AuthControllerFactoryTest extends AbstractHttpControllerTestCase
         $this->assertEquals(new AuthController($oauthServerFactory, $userIdProvider), $controller);
     }
 
+    #[Override]
     protected function setUp(): void
     {
         $this->factory = new AuthControllerFactory();

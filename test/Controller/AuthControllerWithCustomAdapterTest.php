@@ -6,11 +6,13 @@ namespace LaminasTest\ApiTools\OAuth2\Controller;
 
 use Laminas\Http\Request;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Override;
 
 use function json_decode;
 
 class AuthControllerWithCustomAdapterTest extends AbstractHttpControllerTestCase
 {
+    #[Override]
     protected function setUp(): void
     {
         $this->setApplicationConfig(include __DIR__ . '/../TestAsset/custom.application.config.php');
