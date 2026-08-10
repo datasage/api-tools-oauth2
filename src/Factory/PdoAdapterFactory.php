@@ -6,7 +6,6 @@ namespace Laminas\ApiTools\OAuth2\Factory;
 
 use Laminas\ApiTools\OAuth2\Adapter\PdoAdapter;
 use Laminas\ApiTools\OAuth2\Controller\Exception;
-use Laminas\ServiceManager\ServiceLocatorInterface;
 use Psr\Container\ContainerInterface;
 
 use function is_array;
@@ -43,16 +42,5 @@ class PdoAdapterFactory
             'password' => $password,
             'options'  => $options,
         ], $oauth2ServerConfig);
-    }
-
-    /**
-     * Provided for backwards compatibility; proxies to __invoke().
-     *
-     * @param ServiceLocatorInterface $container
-     * @return PdoAdapter
-     */
-    public function createService($container)
-    {
-        return $this($container);
     }
 }
