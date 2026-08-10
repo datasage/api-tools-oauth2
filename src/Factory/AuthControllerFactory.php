@@ -6,8 +6,7 @@ namespace Laminas\ApiTools\OAuth2\Factory;
 
 use Laminas\ApiTools\OAuth2\Controller\AuthController;
 use Laminas\ApiTools\OAuth2\Provider\UserId;
-use Laminas\ServiceManager\FactoryInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use OAuth2\Server as OAuth2Server;
 use Override;
 use Psr\Container\ContainerInterface;
@@ -32,19 +31,6 @@ class AuthControllerFactory implements FactoryInterface
         );
 
         return $authController;
-    }
-
-    /**
-     * @param null|string $name
-     * @param null|string $requestedName
-     * @return AuthController
-     */
-    #[Override]
-    public function createService(ServiceLocatorInterface $controllers, $name = null, $requestedName = null)
-    {
-        $requestedName = $requestedName ?: AuthController::class;
-
-        return $this($controllers, $requestedName);
     }
 
     /**

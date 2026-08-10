@@ -7,7 +7,6 @@ namespace Laminas\ApiTools\OAuth2\Factory;
 use ArrayAccess;
 use Laminas\ApiTools\OAuth2\Adapter\MongoAdapter;
 use Laminas\ApiTools\OAuth2\Controller\Exception;
-use Laminas\ServiceManager\ServiceLocatorInterface;
 use MongoClient;
 use MongoDB;
 use Psr\Container\ContainerInterface;
@@ -26,17 +25,6 @@ class MongoAdapterFactory
             $this->getMongoDb($container, $config),
             $this->getOauth2ServerConfig($config)
         );
-    }
-
-    /**
-     * Provided for backwards compatibility; proxies to __invoke().
-     *
-     * @param ServiceLocatorInterface $container
-     * @return MongoAdapter
-     */
-    public function createService($container)
-    {
-        return $this($container);
     }
 
     /**

@@ -196,9 +196,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[AuthControllerFactory]]></code>
     </ClassMustBeFinal>
-    <DeprecatedInterface>
-      <code><![CDATA[AuthControllerFactory]]></code>
-    </DeprecatedInterface>
     <MixedArgument>
       <code><![CDATA[$container->get(UserId::class)]]></code>
       <code><![CDATA[UserId::class]]></code>
@@ -212,12 +209,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$oauth2ServerFactory]]></code>
     </MixedReturnStatement>
-    <ParamNameMismatch>
-      <code><![CDATA[$controllers]]></code>
-    </ParamNameMismatch>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$requestedName]]></code>
-    </RiskyTruthyFalsyComparison>
     <UndefinedClass>
       <code><![CDATA[UserId]]></code>
     </UndefinedClass>
@@ -236,9 +227,6 @@
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[createService]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Factory/OAuth2ServerInstanceFactory.php">
     <ArgumentTypeCoercion>
@@ -315,9 +303,6 @@
       <code><![CDATA[$password]]></code>
       <code><![CDATA[$username]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[createService]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Module.php">
     <ClassMustBeFinal>
@@ -351,9 +336,6 @@
     <MixedAssignment>
       <code><![CDATA[$config]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[createService]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Adapter/Pdo/AbstractBaseTestCase.php">
     <MixedArgument>
