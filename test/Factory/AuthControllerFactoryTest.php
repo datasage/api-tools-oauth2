@@ -11,6 +11,7 @@ use Laminas\Mvc\Controller\ControllerManager;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Override;
+use ReflectionProperty;
 
 class AuthControllerFactoryTest extends AbstractHttpControllerTestCase
 {
@@ -35,7 +36,11 @@ class AuthControllerFactoryTest extends AbstractHttpControllerTestCase
         $controller = $this->factory->__invoke($this->services, AuthController::class);
 
         $this->assertInstanceOf(AuthController::class, $controller);
-        $this->assertEquals(new AuthController($oauthServerFactory, $userIdProvider), $controller);
+        $property = static fn (string $name): mixed
+            => (new ReflectionProperty($controller, $name))->getValue($controller);
+        $this->assertSame($oauthServerFactory, $property('serverFactory'));
+        $this->assertSame($userIdProvider, $property('userIdProvider'));
+        $this->assertTrue($property('apiProblemErrorResponse'));
     }
 
     #[Override]
